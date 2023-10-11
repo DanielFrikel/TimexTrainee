@@ -30,7 +30,7 @@ namespace AppMenuDaniel
                     op = Convert.ToChar(Console.ReadLine());
                     if (!options.Contains(op))
                     {
-                        Console.WriteLine("\nError, ingrese un operador correcto. [+,-,*,/]");
+                        Console.WriteLine("\nError, please type a valid operator. [+,-,*,/]");
                         continue;
                     }
 
