@@ -1,0 +1,7 @@
+C:\Users\Martin\Desktop\Sandbox\testing1\testing1\bin\Debug\testing1.exe.config
+C:\Users\Martin\Desktop\Sandbox\testing1\testing1\bin\Debug\testing1.exe
+C:\Users\Martin\Desktop\Sandbox\testing1\testing1\bin\Debug\testing1.pdb
+C:\Users\Martin\Desktop\Sandbox\testing1\testing1\obj\Debug\testing1.csproj.AssemblyReference.cache
+C:\Users\Martin\Desktop\Sandbox\testing1\testing1\obj\Debug\testing1.csproj.CoreCompileInputs.cache
+C:\Users\Martin\Desktop\Sandbox\testing1\testing1\obj\Debug\testing1.exe
+C:\Users\Martin\Desktop\Sandbox\testing1\testing1\obj\Debug\testing1.pdb
