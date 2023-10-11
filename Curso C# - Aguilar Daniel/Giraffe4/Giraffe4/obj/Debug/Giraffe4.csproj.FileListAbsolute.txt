@@ -1,0 +1,7 @@
+C:\Users\Martin\Desktop\Sandbox\Giraffe4\Giraffe4\bin\Debug\Giraffe4.exe.config
+C:\Users\Martin\Desktop\Sandbox\Giraffe4\Giraffe4\bin\Debug\Giraffe4.exe
+C:\Users\Martin\Desktop\Sandbox\Giraffe4\Giraffe4\bin\Debug\Giraffe4.pdb
+C:\Users\Martin\Desktop\Sandbox\Giraffe4\Giraffe4\obj\Debug\Giraffe4.csproj.AssemblyReference.cache
+C:\Users\Martin\Desktop\Sandbox\Giraffe4\Giraffe4\obj\Debug\Giraffe4.csproj.CoreCompileInputs.cache
+C:\Users\Martin\Desktop\Sandbox\Giraffe4\Giraffe4\obj\Debug\Giraffe4.exe
+C:\Users\Martin\Desktop\Sandbox\Giraffe4\Giraffe4\obj\Debug\Giraffe4.pdb
