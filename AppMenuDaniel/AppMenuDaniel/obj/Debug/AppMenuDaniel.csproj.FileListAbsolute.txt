@@ -1,0 +1,7 @@
+C:\Users\Martin\Desktop\Sandbox\AppMenuDaniel\AppMenuDaniel\bin\Debug\AppMenuDaniel.exe.config
+C:\Users\Martin\Desktop\Sandbox\AppMenuDaniel\AppMenuDaniel\bin\Debug\AppMenuDaniel.exe
+C:\Users\Martin\Desktop\Sandbox\AppMenuDaniel\AppMenuDaniel\bin\Debug\AppMenuDaniel.pdb
+C:\Users\Martin\Desktop\Sandbox\AppMenuDaniel\AppMenuDaniel\obj\Debug\AppMenuDaniel.csproj.AssemblyReference.cache
+C:\Users\Martin\Desktop\Sandbox\AppMenuDaniel\AppMenuDaniel\obj\Debug\AppMenuDaniel.csproj.CoreCompileInputs.cache
+C:\Users\Martin\Desktop\Sandbox\AppMenuDaniel\AppMenuDaniel\obj\Debug\AppMenuDaniel.exe
+C:\Users\Martin\Desktop\Sandbox\AppMenuDaniel\AppMenuDaniel\obj\Debug\AppMenuDaniel.pdb
