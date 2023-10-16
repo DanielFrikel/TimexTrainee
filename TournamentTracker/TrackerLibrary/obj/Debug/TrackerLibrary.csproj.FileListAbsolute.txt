@@ -1,0 +1,2 @@
+C:\Users\Martin\Desktop\Sandbox\C# 24 Horas - Aguilar Daniel\TournamentTracker\TournamentTracker\TrackerLibrary\obj\Debug\TrackerLibrary.csproj.AssemblyReference.cache
+C:\Users\Martin\Desktop\Sandbox\C# 24 Horas - Aguilar Daniel\TournamentTracker\TournamentTracker\TrackerLibrary\obj\Debug\TrackerLibrary.csproj.CoreCompileInputs.cache
