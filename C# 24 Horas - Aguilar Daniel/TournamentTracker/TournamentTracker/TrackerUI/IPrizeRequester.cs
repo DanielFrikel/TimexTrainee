@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TrackerLibrary.Models;
 
-namespace TrackerLibrary
+namespace TrackerUI
 {
-    public enum DatabaseType 
+    public interface IPrizeRequester
     {
-        Sql,
-        TextFile
+        void PrizeComplete(PrizeModel model);
     }
 }
