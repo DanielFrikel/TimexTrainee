@@ -1,0 +1,7 @@
+C:\Users\Martin\Desktop\Sandbox\C# 24 Horas - Aguilar Daniel\TournamentTracker\FactoryMethodDaniel\FactoryMethodDaniel\bin\Debug\FactoryMethodDaniel.exe.config
+C:\Users\Martin\Desktop\Sandbox\C# 24 Horas - Aguilar Daniel\TournamentTracker\FactoryMethodDaniel\FactoryMethodDaniel\bin\Debug\FactoryMethodDaniel.exe
+C:\Users\Martin\Desktop\Sandbox\C# 24 Horas - Aguilar Daniel\TournamentTracker\FactoryMethodDaniel\FactoryMethodDaniel\bin\Debug\FactoryMethodDaniel.pdb
+C:\Users\Martin\Desktop\Sandbox\C# 24 Horas - Aguilar Daniel\TournamentTracker\FactoryMethodDaniel\FactoryMethodDaniel\obj\Debug\FactoryMethodDaniel.csproj.AssemblyReference.cache
+C:\Users\Martin\Desktop\Sandbox\C# 24 Horas - Aguilar Daniel\TournamentTracker\FactoryMethodDaniel\FactoryMethodDaniel\obj\Debug\FactoryMethodDaniel.csproj.CoreCompileInputs.cache
+C:\Users\Martin\Desktop\Sandbox\C# 24 Horas - Aguilar Daniel\TournamentTracker\FactoryMethodDaniel\FactoryMethodDaniel\obj\Debug\FactoryMethodDaniel.exe
+C:\Users\Martin\Desktop\Sandbox\C# 24 Horas - Aguilar Daniel\TournamentTracker\FactoryMethodDaniel\FactoryMethodDaniel\obj\Debug\FactoryMethodDaniel.pdb
