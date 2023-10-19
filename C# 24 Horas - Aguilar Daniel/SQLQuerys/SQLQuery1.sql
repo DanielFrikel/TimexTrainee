@@ -47,7 +47,8 @@ ALTER TABLE [dbo].[Prizes] ADD CONSTRAINT [DF_Prizes_PrizePercentage] DEFAULT ((
 --exec dbo.spTestPerson 'Corey'
 
 
---===============================================================
+--================================================================================================================
+
 CREATE PROCEDURE dbo.spPrizes_Insert
 	@PlaceNumber int,
 	@PlaceName nvarchar(50),
@@ -63,7 +64,158 @@ BEGIN
 		SELECT @id = SCOPE_IDENTITY();
 END
 GO
-=================================================================
+--================================================================================================================
+CREATE PROCEDURE dbo.spPeople_Insert
+	@FirstName NVARCHAR(100),
+	@LastName NVARCHAR(100),
+	@EmailAddress NVARCHAR(100),
+	@CellphoneNumber VARCHAR(20),
+	@id INT = 0 OUTPUT
+AS
+BEGIN	
+	SET NOCOUNT ON;
+
+    INSERT INTO dbo.People (FirstName, LastName, EmailAddress, CellphoneNumber)
+	VALUES(@FirstName,@LastName,@EmailAddress,@CellphoneNumber);
+
+	SELECT @id=SCOPE_IDENTITY();
+END
+GO
+--================================================================================================================
+
+CREATE PROCEDURE dbo.spPeople_GetAll
+AS
+BEGIN
+    SELECT * FROM People;
+END
+GO
+
+--================================================================================================================
+
+CREATE PROCEDURE [dbo].[spPrizes_GetByTournament]
+	@TournamentId INT
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+	SELECT p.*
+	FROM dbo.Prizes p
+	INNER JOIN dbo.TournamentPrizes t ON p.id = t.PrizeId
+	WHERE t.TournamentId = @TournamentId
+END
+GO
+--================================================================================================================
+
+CREATE PROCEDURE dbo.spTeams_Insert
+	@TeamName NVARCHAR(100),
+	@id INT = 0 OUTPUT
+AS
+BEGIN
+	SET NOCOUNT ON;
+
+	INSERT INTO dbo.Teams(TeamName)
+	VALUES (@TeamName);
+    
+	SELECT @id = SCOPE_IDENTITY();
+END
+GO
+
+
+--================================================================================================================
+
+CREATE PROCEDURE dbo.spTeamMembers_Insert
+	@TeamId INT,
+	@PersonId INT,
+	@id INT = 0 OUTPUT
+AS
+BEGIN
+	SET NOCOUNT ON;
+
+	INSERT INTO dbo.TeamMembers(TeamId, PersonId)
+	VALUES (@TeamId, @PersonId);
+    
+	SELECT @id = SCOPE_IDENTITY();
+END
+GO
+
+--================================================================================================================
+CREATE PROCEDURE dbo.spTeam_GetAll
+AS
+BEGIN
+    SELECT * FROM Teams;
+END
+GO
+
+--================================================================================================================
+
+CREATE PROCEDURE [dbo].[spTeamMembers_GetByTeam]
+	@TeamId INT
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+	SELECT p.*
+	FROM dbo.TeamMembers m
+	INNER JOIN dbo.People p ON m.PersonId = p.id
+	WHERE m.TeamId = @TeamId
+END
+GO
+
+--================================================================================================================
+
+CREATE PROCEDURE dbo.spTournaments_Insert
+	@TournamentName NVARCHAR(200),
+	@EntryFee MONEY,
+	@id INT = 0 OUTPUT
+AS
+BEGIN
+	SET NOCOUNT ON;
+
+	INSERT INTO dbo.Tournaments(TournamentName, EntryFee, Active)
+	VALUES (@TournamentName,@EntryFee, 1);
+
+	SELECT @id = SCOPE_IDENTITY();
+END
+GO
+
+--================================================================================================================
+
+CREATE PROCEDURE dbo.spTournamentsPrizes_Insert
+	@TournamentId INT,
+	@PrizeId INT,
+	@id INT = 0 OUTPUT
+AS
+BEGIN
+	SET NOCOUNT ON;
+
+	INSERT INTO dbo.TournamentPrizes(TournamentId, PrizeId	)
+	VALUES (@TournamentId,@PrizeId);
+
+	SELECT @id = SCOPE_IDENTITY();
+END
+GO
+
+--================================================================================================================
+
+CREATE PROCEDURE dbo.spTournamentEntries_Insert
+	@TournamentId INT,
+	@TeamId INT,
+	@id INT = 0 OUTPUT
+AS
+BEGIN
+	SET NOCOUNT ON;
+
+	INSERT INTO dbo.TournamentEntries(TournamentId, TeamId)
+	VALUES (@TournamentId, @TeamId);
+
+	SELECT @id = SCOPE_IDENTITY();
+END
+GO
+--================================================================================================================
+--================================================================================================================
 
 CREATE TABLE Tournaments(
 	id INT IDENTITY(1,1) PRIMARY KEY,
@@ -102,10 +254,10 @@ CREATE TABLE TournamentPrizes(
 
 CREATE TABLE People(
 	id INT IDENTITY(1,1) PRIMARY KEY,
-	FirstName VARCHAR(50),
-	LastName VARCHAR(50),
-	EmailAddress VARCHAR(50),
-	CellphoneNumber VARCHAR(50),
+	FirstName VARCHAR(100) NOT NULL,
+	LastName VARCHAR(100) NOT NULL,
+	EmailAddress VARCHAR(100) NOT NULL,
+	CellphoneNumber VARCHAR(20),
 );
 
 CREATE TABLE TeamMembers(
@@ -133,4 +285,17 @@ CREATE TABLE MatchupEntries (
     FOREIGN KEY (ParentMatchupId) REFERENCES MatchupEntries(id) ON DELETE NO ACTION,
     FOREIGN KEY (TeamCompetingId) REFERENCES Teams(id) ON DELETE SET NULL
 );
+
+SELECT TOP 5 * FROM Prizes;
+USE Tournaments;
+
+SELECT * FROM dbo.People;
+
+SELECT TOP 5 * FROM dbo.Teams;
+SELECT TOP 5 * FROM dbo.TeamMembers;
+
+SELECT tm.PersonId, p.FirstName, t.TeamName
+FROM People p
+JOIN TeamMembers tm ON p.id = tm.PersonId
+JOIN Teams t ON t.id = tm.TeamId
 
