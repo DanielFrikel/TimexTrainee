@@ -1,9 +1,0 @@
-C:\Users\Martin\Desktop\Sandbox\C# 24 Horas - Aguilar Daniel\TournamentTracker\TournamentTracker\TrackerLibrary\obj\Debug\TrackerLibrary.csproj.AssemblyReference.cache
-C:\Users\Martin\Desktop\Sandbox\C# 24 Horas - Aguilar Daniel\TournamentTracker\TournamentTracker\TrackerLibrary\obj\Debug\TrackerLibrary.csproj.CoreCompileInputs.cache
-C:\Users\Martin\Desktop\Sandbox\C# 24 Horas - Aguilar Daniel\TournamentTracker\TournamentTracker\TrackerLibrary\bin\Debug\TrackerLibrary.dll
-C:\Users\Martin\Desktop\Sandbox\C# 24 Horas - Aguilar Daniel\TournamentTracker\TournamentTracker\TrackerLibrary\bin\Debug\TrackerLibrary.pdb
-C:\Users\Martin\Desktop\Sandbox\C# 24 Horas - Aguilar Daniel\TournamentTracker\TournamentTracker\TrackerLibrary\obj\Debug\TrackerLibrary.dll
-C:\Users\Martin\Desktop\Sandbox\C# 24 Horas - Aguilar Daniel\TournamentTracker\TournamentTracker\TrackerLibrary\obj\Debug\TrackerLibrary.pdb
-C:\Users\Martin\Desktop\Sandbox\C# 24 Horas - Aguilar Daniel\TournamentTracker\TournamentTracker\TrackerLibrary\bin\Debug\Dapper.dll
-C:\Users\Martin\Desktop\Sandbox\C# 24 Horas - Aguilar Daniel\TournamentTracker\TournamentTracker\TrackerLibrary\bin\Debug\Dapper.xml
-C:\Users\Martin\Desktop\Sandbox\C# 24 Horas - Aguilar Daniel\TournamentTracker\TournamentTracker\TrackerLibrary\obj\Debug\TrackerLibrary.csproj.CopyComplete
