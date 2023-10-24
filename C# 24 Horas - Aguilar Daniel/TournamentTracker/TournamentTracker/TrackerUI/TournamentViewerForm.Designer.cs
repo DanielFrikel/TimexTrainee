@@ -83,10 +83,11 @@
             this.roundDropDown.Font = new System.Drawing.Font("Segoe UI Light", 15F);
             this.roundDropDown.FormattingEnabled = true;
             this.roundDropDown.Location = new System.Drawing.Point(115, 76);
-            this.roundDropDown.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.roundDropDown.Margin = new System.Windows.Forms.Padding(1);
             this.roundDropDown.Name = "roundDropDown";
             this.roundDropDown.Size = new System.Drawing.Size(209, 36);
             this.roundDropDown.TabIndex = 3;
+            this.roundDropDown.SelectedIndexChanged += new System.EventHandler(this.roundDropDown_SelectedIndexChanged);
             // 
             // unplayedOnlyCheckbox
             // 
@@ -94,7 +95,7 @@
             this.unplayedOnlyCheckbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.unplayedOnlyCheckbox.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.unplayedOnlyCheckbox.Location = new System.Drawing.Point(115, 114);
-            this.unplayedOnlyCheckbox.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.unplayedOnlyCheckbox.Margin = new System.Windows.Forms.Padding(1);
             this.unplayedOnlyCheckbox.Name = "unplayedOnlyCheckbox";
             this.unplayedOnlyCheckbox.Size = new System.Drawing.Size(209, 41);
             this.unplayedOnlyCheckbox.TabIndex = 4;
@@ -108,10 +109,11 @@
             this.matchupListBox.FormattingEnabled = true;
             this.matchupListBox.ItemHeight = 31;
             this.matchupListBox.Location = new System.Drawing.Point(26, 180);
-            this.matchupListBox.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.matchupListBox.Margin = new System.Windows.Forms.Padding(1);
             this.matchupListBox.Name = "matchupListBox";
             this.matchupListBox.Size = new System.Drawing.Size(316, 281);
             this.matchupListBox.TabIndex = 5;
+            this.matchupListBox.SelectedIndexChanged += new System.EventHandler(this.matchupListBox_SelectedIndexChanged);
             // 
             // teamOneName
             // 
@@ -139,7 +141,7 @@
             // 
             this.teamOneScoreValue.Font = new System.Drawing.Font("Segoe UI Light", 15F);
             this.teamOneScoreValue.Location = new System.Drawing.Point(464, 232);
-            this.teamOneScoreValue.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.teamOneScoreValue.Margin = new System.Windows.Forms.Padding(1);
             this.teamOneScoreValue.Name = "teamOneScoreValue";
             this.teamOneScoreValue.Size = new System.Drawing.Size(117, 34);
             this.teamOneScoreValue.TabIndex = 8;
@@ -148,7 +150,7 @@
             // 
             this.teamTwoScoreValue.Font = new System.Drawing.Font("Segoe UI Light", 15F);
             this.teamTwoScoreValue.Location = new System.Drawing.Point(464, 409);
-            this.teamTwoScoreValue.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.teamTwoScoreValue.Margin = new System.Windows.Forms.Padding(1);
             this.teamTwoScoreValue.Name = "teamTwoScoreValue";
             this.teamTwoScoreValue.Size = new System.Drawing.Size(117, 34);
             this.teamTwoScoreValue.TabIndex = 11;
