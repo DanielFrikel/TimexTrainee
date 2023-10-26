@@ -8,19 +8,19 @@ namespace TrackerLibrary.Models
 {
     public class MatchupModel
     {
+        //Bien
         /// <summary>
         /// The unique identifier for the Matchup.
         /// </summary>
         public int Id { get; set; }
         /// <summary>
         /// The set of teams that were involved in this match.
-        /// </summary>
+        /// </summary>        
         public List<MatchupEntryModel> Entries { get; set; } = new List<MatchupEntryModel>();
         /// <summary>
         /// The ID from the database that will be used to identify the winner.
         /// </summary>
         public int WinnerId { get; set; }
-        /// <summary>
         /// The winner of the match.
         /// </summary>
         public TeamModel Winner { get; set; }
@@ -29,12 +29,12 @@ namespace TrackerLibrary.Models
         /// </summary>
         public int MatchupRound { get; set; }
 
-        public string DisplayName 
+        public string DisplayName
         {
-            get 
+            get
             {
                 string output = "";
-                foreach (MatchupEntryModel me in Entries) 
+                foreach (MatchupEntryModel me in Entries)
                 {
                     if (me.TeamCompeting != null)
                     {
@@ -44,17 +44,18 @@ namespace TrackerLibrary.Models
                         }
                         else
                         {
-                            output += $" vs {me.TeamCompeting.TeamName}";
+                            output += $" vs. {me.TeamCompeting.TeamName }";
                         }
                     }
-                    else 
+                    else
                     {
-                        output = "Matchup Not Yet Determined";
+                        output = "Matchup not yet determined.";
                         break;
                     }
                 }
                 return output;
             }
         }
+
     }
 }
