@@ -121,7 +121,6 @@ BEGIN
 END
 GO
 
-
 --================================================================================================================
 
 CREATE PROCEDURE dbo.spTeamMembers_Insert
@@ -215,6 +214,165 @@ BEGIN
 END
 GO
 --================================================================================================================
+
+CREATE PROCEDURE dbo.spMatchups_Insert
+	@TournamentId INT,
+	@MatchupRound INT,
+	@id INT = 0 OUTPUT
+AS
+BEGIN
+	SET NOCOUNT ON;
+
+	INSERT INTO dbo.Matchups(TournamentId, MatchupRound)
+	VALUES (@TournamentId, @MatchupRound);
+
+	SELECT @id = SCOPE_IDENTITY();
+END
+GO
+
+--================================================================================================================
+
+ALTER TABLE Matchups ADD TournamentId INT NOT NULL,
+						 FOREIGN KEY(TournamentId) REFERENCES Tournaments(id);
+
+--================================================================================================================
+--BIEN
+ALTER PROCEDURE dbo.spMatchupEntries_Insert
+	@MatchupId INT,
+	@ParentMatchupId INT,
+	@TeamCompetingId INT,
+	@id INT = 0 OUTPUT
+AS
+BEGIN
+	SET NOCOUNT ON;
+
+	INSERT INTO dbo.MatchupEntries(MatchupId, ParentMatchupId, TeamCompetingId)
+	VALUES (@MatchupId, @ParentMatchupId, @TeamCompetingId);
+
+	SELECT @id = SCOPE_IDENTITY();
+END
+GO
+
+--================================================================================================================
+
+CREATE PROCEDURE dbo.spTournaments_GetAll
+AS
+BEGIN
+    SELECT * FROM Tournaments
+	WHERE Active=1;
+END
+GO
+
+
+--================================================================================================================
+
+
+CREATE PROCEDURE [dbo].[spMatchups_GetByTournament]
+	@TournamentId INT
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+	SELECT m.*
+	FROM dbo.Matchups m	
+	WHERE m.TournamentId = @TournamentId
+	ORDER BY  MatchupRound;
+END
+GO
+
+--================================================================================================================
+
+CREATE PROCEDURE [dbo].[spMatchupsEntries_GetByMatchup]
+	@MatchupId INT
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+	SELECT *
+	FROM MatchupEntries
+	WHERE MatchupId = @MatchupId
+END
+GO
+
+--================================================================================================================
+--[spMatchups_GetByTournament]
+CREATE PROCEDURE [dbo].[spTeam_GetByTournament]
+	@TournamentId INT
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+	SELECT tm.*
+	FROM dbo.Teams tm
+	WHERE tm.id IN (SELECT TeamId FROM TournamentEntries WHERE TournamentId = @TournamentId)
+END
+GO
+
+
+
+--CREATE PROCEDURE [dbo].[spMatchups_GetByTournament]
+--	@TournamentId INT
+--AS
+--BEGIN
+--	-- SET NOCOUNT ON added to prevent extra result sets from
+--	-- interfering with SELECT statements.
+--	SET NOCOUNT ON;
+--	SELECT m.*
+--	FROM dbo.Matchups m	
+--	WHERE m.TournamentId = @TournamentId
+--	ORDER BY  MatchupRound;
+--END
+--GO
+--================================================================================================================
+
+CREATE PROCEDURE dbo.spMatchups_Update
+	@id int,
+	@WinnerId int
+AS
+BEGIN
+    SET NOCOUNT ON;
+	
+	UPDATE dbo.Matchups SET WinnerId = @WinnerId
+	WHERE id = @id;
+END
+GO
+
+--================================================================================================================
+
+
+CREATE PROCEDURE dbo.spMatchupsEntries_Update
+	@id int,
+	@TeamCompetingId int = null,
+	@Score float = null
+AS
+BEGIN
+    SET NOCOUNT ON;
+	
+	UPDATE dbo.MatchupEntries 
+	SET TeamCompetingId = @TeamCompetingId, Score = @Score
+	WHERE id = @id;
+END
+GO
+
+--================================================================================================================
+
+CREATE PROCEDURE dbo.spTournaments_Complete
+	@id INT
+AS
+BEGIN
+	SET NOCOUNT ON;
+
+	UPDATE dbo.Tournaments
+	SET Active = 0
+	WHERE id = @id;	
+END
+GO
+
+--================================================================================================================
+--================================================================================================================
 --================================================================================================================
 
 CREATE TABLE Tournaments(
@@ -290,8 +448,9 @@ SELECT TOP 5 * FROM Prizes;
 USE Tournaments;
 
 SELECT * FROM dbo.People;
+SELECT * FROM dbo.Tournaments;
 
-SELECT TOP 5 * FROM dbo.Teams;
+SELECT * FROM dbo.Teams;
 SELECT TOP 5 * FROM dbo.TeamMembers;
 
 SELECT tm.PersonId, p.FirstName, t.TeamName
@@ -299,3 +458,8 @@ FROM People p
 JOIN TeamMembers tm ON p.id = tm.PersonId
 JOIN Teams t ON t.id = tm.TeamId
 
+SELECT * FROM dbo.Matchups;
+
+SELECT * FROM dbo.MatchupEntries;
+
+UPDATE MatchupEntries SET TeamCompetingId = 6 WHERE TeamCompetingId = 3;
